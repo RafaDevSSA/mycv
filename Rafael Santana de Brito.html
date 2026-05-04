@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Currículo — Rafael Santana de Brito | Senior Software Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #0f0f0f;
+    --ink-soft: #3a3a3a;
+    --ink-muted: #6b6b6b;
+    --ink-faint: #9a9a9a;
+    --accent: #1a3fa3;
+    --accent-light: #e8edf8;
+    --accent-mid: #4a6fd4;
+    --divider: #e2e2e2;
+    --bg: #ffffff;
+    --sidebar-bg: #0f1623;
+    --sidebar-text: #e8ecf4;
+    --sidebar-muted: #8b97b0;
+    --sidebar-accent: #5b8df8;
+    --tag-bg: #1e2d4a;
+    --tag-text: #93b4f5;
+  }
+
+  html { font-size: 14px; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #f0ede8;
+    color: var(--ink);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 2rem 1rem;
+  }
+
+  .page {
+    width: 900px;
+    background: var(--bg);
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    min-height: 1100px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.18), 0 4px 16px rgba(0,0,0,0.08);
+  }
+
+  /* ─── SIDEBAR ─── */
+  .sidebar {
+    background: var(--sidebar-bg);
+    color: var(--sidebar-text);
+    padding: 2.5rem 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .avatar-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .avatar {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #1e3a8a, #3b6fd4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.8rem;
+    color: #fff;
+    letter-spacing: -1px;
+    flex-shrink: 0;
+  }
+
+  .name-block { text-align: center; }
+  .name-block .first { font-size: 0.7rem; font-weight: 300; color: var(--sidebar-muted); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.25rem; }
+  .name-block .last { font-family: 'DM Serif Display', serif; font-size: 1.6rem; line-height: 1; color: #fff; margin-bottom: 0.4rem; }
+  .name-block .role { font-size: 0.68rem; font-weight: 400; color: var(--sidebar-accent); letter-spacing: 0.05em; line-height: 1.4; }
+
+  .sidebar-section { display: flex; flex-direction: column; gap: 0.6rem; }
+  .sidebar-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.58rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--sidebar-accent);
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid rgba(91,141,248,0.2);
+    margin-bottom: 0.2rem;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    font-size: 0.72rem;
+    color: var(--sidebar-muted);
+    line-height: 1.4;
+  }
+  .contact-item svg { flex-shrink: 0; margin-top: 1px; }
+  .contact-item a { color: var(--sidebar-text); text-decoration: none; }
+  .contact-item a:hover { color: var(--sidebar-accent); }
+
+  .skill-group { margin-bottom: 0.8rem; }
+  .skill-group-title { font-size: 0.62rem; font-weight: 500; color: var(--sidebar-muted); letter-spacing: 0.06em; margin-bottom: 0.4rem; text-transform: uppercase; }
+  .tags { display: flex; flex-wrap: wrap; gap: 0.3rem; }
+  .tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    font-weight: 500;
+    background: var(--tag-bg);
+    color: var(--tag-text);
+    padding: 0.2rem 0.5rem;
+    border-radius: 3px;
+    letter-spacing: 0.02em;
+    border: 1px solid rgba(91,141,248,0.15);
+  }
+
+  .edu-item { font-size: 0.72rem; color: var(--sidebar-muted); line-height: 1.5; }
+  .edu-item strong { color: var(--sidebar-text); font-weight: 500; display: block; font-size: 0.73rem; }
+  .edu-item span { font-size: 0.65rem; color: var(--sidebar-accent); font-family: 'DM Mono', monospace; }
+
+  .course-item {
+    font-size: 0.68rem;
+    color: var(--sidebar-muted);
+    padding-left: 0.7rem;
+    border-left: 2px solid rgba(91,141,248,0.25);
+    line-height: 1.4;
+    margin-bottom: 0.35rem;
+  }
+
+  /* ─── MAIN ─── */
+  .main {
+    padding: 2.5rem 2.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .main-header {
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid var(--ink);
+  }
+
+  .main-header .headline {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.2rem;
+    line-height: 1.1;
+    color: var(--ink);
+    margin-bottom: 0.25rem;
+  }
+
+  .main-header .headline em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .main-header .sub {
+    font-size: 0.72rem;
+    color: var(--ink-muted);
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    font-family: 'DM Mono', monospace;
+  }
+
+  .section-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  .section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--accent-light);
+  }
+
+  .summary-text {
+    font-size: 0.8rem;
+    line-height: 1.75;
+    color: var(--ink-soft);
+    font-weight: 300;
+  }
+
+  .summary-text strong { font-weight: 600; color: var(--ink); }
+
+  /* Experience */
+  .exp-list { display: flex; flex-direction: column; gap: 1.6rem; }
+
+  .exp-item {
+    display: grid;
+    grid-template-columns: 3px 1fr;
+    gap: 0 1rem;
+  }
+
+  .exp-line {
+    background: var(--divider);
+    border-radius: 2px;
+    position: relative;
+  }
+
+  .exp-line::before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 2px solid #fff;
+    box-shadow: 0 0 0 1.5px var(--accent);
+  }
+
+  .exp-content {}
+  .exp-header { margin-bottom: 0.5rem; }
+
+  .exp-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .exp-role {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1rem;
+    color: var(--ink);
+    line-height: 1.2;
+  }
+
+  .exp-period {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    color: var(--ink-faint);
+    white-space: nowrap;
+    padding-top: 3px;
+  }
+
+  .exp-company {
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: var(--accent-mid);
+    margin-top: 0.1rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .exp-meta {
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.6rem;
+  }
+
+  .badge {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.55rem;
+    font-weight: 500;
+    padding: 0.15rem 0.45rem;
+    border-radius: 3px;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+  }
+
+  .badge-blue { background: #e8edf8; color: #1a3fa3; }
+  .badge-gray { background: #f0f0f0; color: #555; }
+  .badge-green { background: #eaf4ec; color: #2a7a3a; }
+  .badge-amber { background: #fdf3e3; color: #9a6200; }
+
+  .exp-desc {
+    font-size: 0.75rem;
+    color: var(--ink-soft);
+    line-height: 1.65;
+    font-weight: 300;
+  }
+
+  .bullet-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    margin-top: 0.4rem;
+  }
+
+  .bullet-list li {
+    display: flex;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    font-weight: 300;
+  }
+
+  .bullet-list li::before {
+    content: '→';
+    color: var(--accent-mid);
+    font-size: 0.65rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+    font-family: 'DM Mono', monospace;
+  }
+
+  .bullet-list li strong { font-weight: 600; color: var(--ink); }
+
+  .highlight-box {
+    background: var(--accent-light);
+    border-left: 3px solid var(--accent);
+    padding: 0.5rem 0.75rem;
+    border-radius: 0 4px 4px 0;
+    margin-top: 0.6rem;
+  }
+
+  .highlight-box p {
+    font-size: 0.72rem;
+    line-height: 1.5;
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  .stack-pills { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-top: 0.6rem; }
+  .stack-pill {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.58rem;
+    padding: 0.15rem 0.45rem;
+    border-radius: 3px;
+    background: #f5f5f5;
+    color: var(--ink-muted);
+    border: 1px solid var(--divider);
+  }
+
+  /* Open to work banner */
+  .open-banner {
+    background: linear-gradient(135deg, #0f1623 0%, #1a2d5a 100%);
+    border-radius: 6px;
+    padding: 0.8rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .open-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #4ade80;
+    flex-shrink: 0;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  .open-text { font-size: 0.72rem; color: #e8ecf4; font-weight: 300; line-height: 1.4; }
+  .open-text strong { color: #fff; font-weight: 500; }
+
+  /* ─── PRINT ─── */
+  @media print {
+    body { background: #fff; padding: 0; }
+    .page {
+      box-shadow: none;
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 680px) {
+    .page { grid-template-columns: 1fr; width: 100%; }
+    .main-header .headline { font-size: 1.6rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- ── SIDEBAR ── -->
+  <aside class="sidebar">
+
+    <div class="avatar-block">
+      <div class="name-block">
+        <div class="last">Rafael<br><span style="font-size:1.1rem;">Santana de Brito</span></div>
+        <div class="role">Senior Software Engineer<br>PHP · Laravel · Node.js</div>
+      </div>
+    </div>
+
+    <!-- Contact -->
+    <div class="sidebar-section">
+      <div class="sidebar-label">Contato</div>
+      <div class="contact-item">
+        <svg width="11" height="11" viewBox="0 0 16 16" fill="none"><path d="M8 1a5 5 0 100 10A5 5 0 008 1zM0 8a8 8 0 1116 0A8 8 0 010 8z" fill="#5b8df8"/><path d="M8 4v4l3 1.5" stroke="#5b8df8" stroke-width="1.5" stroke-linecap="round"/></svg>
+        Bahia, Brasil · Remoto
+      </div>
+      <div class="contact-item">
+        <svg width="11" height="11" viewBox="0 0 16 16" fill="none"><rect x="1" y="3" width="14" height="10" rx="2" stroke="#5b8df8" stroke-width="1.5"/><path d="M1 5l7 5 7-5" stroke="#5b8df8" stroke-width="1.5"/></svg>
+        <span>rafadevteam@gmail.com</span>
+      </div>
+      <div class="contact-item">
+        <svg width="11" height="11" viewBox="0 0 16 16" fill="none"><rect x="1" y="1" width="14" height="14" rx="2" stroke="#5b8df8" stroke-width="1.5"/><path d="M5 7v5M5 4.5v.5M8 7v5M11 7v2.5A2.5 2.5 0 018.5 12" stroke="#5b8df8" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <a href="https://linkedin.com/in/rafaelsbsoftwareengineer" target="_blank">linkedin.com/in/rafaelsbsoftwareengineer</a>
+      </div>
+      <div class="contact-item">
+        <svg width="11" height="11" viewBox="0 0 16 16" fill="none"><path d="M8 .5A7.5 7.5 0 00.5 8c0 3.31 2.147 6.12 5.125 7.113.375.069.512-.163.512-.362v-1.275C4.1 13.9 3.675 12.5 3.675 12.5c-.344-.875-.844-1.1-.844-1.1-.688-.469.05-.463.05-.463.763.056 1.163.781 1.163.781.675 1.156 1.769.825 2.2.631.069-.488.263-.825.475-1.013C5.494 11.1 3.906 10.525 3.906 7.838c0-.769.275-1.4.725-1.894-.075-.175-.313-.9.069-1.875 0 0 .594-.188 1.944.725A6.76 6.76 0 018 4.506a6.76 6.76 0 011.356.181c1.35-.913 1.944-.725 1.944-.725.381.975.144 1.7.069 1.875.45.494.725 1.125.725 1.894 0 2.694-1.594 3.256-3.113 3.431.244.213.463.631.463 1.275v1.888c0 .2.131.431.519.363A7.505 7.505 0 0015.5 8 7.5 7.5 0 008 .5z" fill="#5b8df8"/></svg>
+        <a href="https://github.com/RafaDevSSA" target="_blank">https://github.com/RafaDevSSA</a>
+      </div>
+    </div>
+
+    <!-- Skills -->
+    <div class="sidebar-section">
+      <div class="sidebar-label">Habilidades</div>
+
+      <div class="skill-group">
+        <div class="skill-group-title">Backend</div>
+        <div class="tags">
+          <span class="tag">PHP</span>
+          <span class="tag">Laravel</span>
+          <span class="tag">Node.js</span>
+          <span class="tag">NestJS</span>
+          <span class="tag">TypeScript</span>
+          <span class="tag">REST API</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-title">Banco de Dados</div>
+        <div class="tags">
+          <span class="tag">MySQL</span>
+          <span class="tag">PostgreSQL</span>
+          <span class="tag">MongoDB</span>
+          <span class="tag">Redis</span>
+          <span class="tag">Elasticsearch</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-title">DevOps & Infra</div>
+        <div class="tags">
+          <span class="tag">Docker</span>
+          <span class="tag">CI/CD</span>
+          <span class="tag">GitHub Actions</span>
+          <span class="tag">AWS</span>
+          <span class="tag">RabbitMQ</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-title">Frontend</div>
+        <div class="tags">
+          <span class="tag">Vue.js</span>
+          <span class="tag">Angular</span>
+          <span class="tag">Blade</span>
+          <span class="tag">Alpine.js</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-title">Arquitetura & Processo</div>
+        <div class="tags">
+          <span class="tag">Microsserviços</span>
+          <span class="tag">SOLID</span>
+          <span class="tag">Clean Code</span>
+          <span class="tag">Scrum</span>
+          <span class="tag">Kanban</span>
+          <span class="tag">Swagger</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Education -->
+    <div class="sidebar-section">
+      <div class="sidebar-label">Formação</div>
+      <div class="edu-item">
+        <strong>Sistemas de Informação</strong>
+        Estácio FIB — Bacharelado
+        <span>Bahia, Brasil</span>
+      </div>
+    </div>
+
+    <!-- Courses -->
+    <div class="sidebar-section">
+      <div class="sidebar-label">Cursos & Certificações</div>
+      <div class="course-item">FullCycle 3.0 — Arquitetura de Software</div>
+      <div class="course-item">Angular 4, 5 e 6 — Udemy</div>
+      <div class="course-item">Docker: Ferramenta Essencial — Udemy</div>
+      <div class="course-item">Laravel 5.8+ — Udemy Brasil</div>
+      <div class="course-item">Deploy em Cloud Providers (AWS) — Udemy Brasil</div>
+    </div>
+
+    <!-- Languages -->
+    <div class="sidebar-section">
+      <div class="sidebar-label">Idiomas</div>
+      <div class="contact-item">Português — Nativo</div>
+      <div class="contact-item">Inglês — Técnico / Leitura</div>
+    </div>
+
+  </aside>
+
+  <!-- ── MAIN ── -->
+  <main class="main">
+
+    <div class="main-header">
+      <div class="headline">Senior Software<br><em>Engineer</em></div>
+      <div class="sub">10+ anos · Back-end · PHP · Laravel · Node.js · Microsserviços · DevOps</div>
+    </div>
+
+    <!-- Summary -->
+    <section>
+      <div class="section-title">Perfil Profissional</div>
+      <p class="summary-text">
+        Desenvolvedor Back-End Sênior com <strong>mais de 10 anos de experiência</strong> construindo sistemas escaláveis, APIs de alta performance e microsserviços para produtos com grandes volumes de acesso. Tenho atuação sólida em <strong>PHP (Laravel)</strong> e <strong>Node.js (NestJS)</strong>, com passagem por projetos de grande porte tanto no setor público quanto privado.
+      </p>
+      <p class="summary-text" style="margin-top: 0.6rem;">
+        Ao longo da carreira, assumi papéis de <strong>liderança técnica</strong>, coordenando times de desenvolvimento, definindo arquitetura e garantindo qualidade de entrega. Tenho forte foco em <strong>Clean Code, SOLID</strong> e boas práticas de engenharia — além de experiência prática com Docker, CI/CD e cloud (AWS). Utilizo ferramentas de IA generativa (Claude, ChatGPT) ativamente no fluxo de trabalho para elevar produtividade e qualidade técnica. <strong>Disponível para novas oportunidades.</strong>
+      </p>
+    </section>
+
+    <!-- Experience -->
+    <section>
+      <div class="section-title">Experiência Profissional</div>
+      <div class="exp-list">
+
+        <!-- Atlas -->
+        <div class="exp-item">
+          <div class="exp-line"></div>
+          <div class="exp-content">
+            <div class="exp-header">
+              <div class="exp-top">
+                <div class="exp-role">Senior Software Engineer</div>
+                <div class="exp-period">dez/2022 → jun/2025 · 2a 7m</div>
+              </div>
+              <div class="exp-company">Atlas Technologies</div>
+              <div class="exp-meta">
+                <span class="badge badge-gray">Remoto</span>
+                <span class="badge badge-blue">Back-end</span>
+                <span class="badge badge-blue">Microsserviços</span>
+              </div>
+            </div>
+            <ul class="bullet-list">
+              <li>Atuei no desenvolvimento e manutenção de plataforma de marketplace com mais de 70 mil usuários ativos e alto volume de requisições diárias</li>
+              <li>Desenvolvi feature de validação biométrica via bureau de faces, permitindo cadastro de prestadores sem documentação física — reduzindo fricção no onboarding e aumentando conversão</li>
+              <li>Implementei e otimizei Elasticsearch para busca textual, analytics de comportamento e monitoramento de logs em larga escala</li>
+              <li>Contribuí na construção de microsserviços e integrações com produtos satélite da plataforma (Fatal Fans, Casas)</li>
+              <li>Atuei em time ágil multidisciplinar (3 back-ends, 2 front-ends, 2 QAs, TL, PM) seguindo Scrum/Kanban</li>
+            </ul>
+            <div class="stack-pills">
+              <span class="stack-pill">PHP</span><span class="stack-pill">Laravel</span><span class="stack-pill">Elasticsearch</span><span class="stack-pill">MySQL</span><span class="stack-pill">Docker</span><span class="stack-pill">Microsserviços</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- MJV -->
+        <div class="exp-item">
+          <div class="exp-line"></div>
+          <div class="exp-content">
+            <div class="exp-header">
+              <div class="exp-top">
+                <div class="exp-role">Software Engineer</div>
+                <div class="exp-period">mai/2022 → dez/2022 · 8m</div>
+              </div>
+              <div class="exp-company">MJV Technology & Innovation · Projeto Auto Compara (Santander)</div>
+              <div class="exp-meta">
+                <span class="badge badge-gray">Remoto</span>
+                <span class="badge badge-blue">Fintech</span>
+                <span class="badge badge-blue">AWS</span>
+              </div>
+            </div>
+            <ul class="bullet-list">
+              <li>Desenvolvimento de APIs RESTful com NestJS e TypeScript para plataforma de comparação financeira do Santander</li>
+              <li>Containerização de serviços com Docker e pipeline de CI/CD na AWS, garantindo alta disponibilidade</li>
+              <li>Colaboração cross-funcional com times de produto, QA e front-end via Jira e GitLab</li>
+            </ul>
+            <div class="stack-pills">
+              <span class="stack-pill">Node.js</span><span class="stack-pill">NestJS</span><span class="stack-pill">TypeScript</span><span class="stack-pill">Docker</span><span class="stack-pill">AWS</span><span class="stack-pill">GitLab CI</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Capgemini -->
+        <div class="exp-item">
+          <div class="exp-line"></div>
+          <div class="exp-content">
+            <div class="exp-header">
+              <div class="exp-top">
+                <div class="exp-role">Tech Lead · Analista de Sistemas Sênior</div>
+                <div class="exp-period">set/2020 → abr/2022 · 1a 8m</div>
+              </div>
+              <div class="exp-company">Capgemini · Projeto Uno — Ministério Público de Minas Gerais</div>
+              <div class="exp-meta">
+                <span class="badge badge-amber">Tech Lead</span>
+                <span class="badge badge-blue">Gov</span>
+                <span class="badge badge-blue">Gestão Contratual</span>
+              </div>
+            </div>
+            <ul class="bullet-list">
+              <li>Liderança técnica de um time com 5 desenvolvedores front-end, 2 QAs e 1 PM no projeto Uno (Ministério Público-MG)</li>
+              <li>Responsável pela entrega de features de gestão de contratos e administração interna, cobrindo ciclos completos — requisitos, desenvolvimento, QA e produção</li>
+              <li>Definição de arquitetura e padrões de desenvolvimento com Laravel, MySQL e Vue.js</li>
+            </ul>
+            <div class="stack-pills">
+              <span class="stack-pill">PHP</span><span class="stack-pill">Laravel</span><span class="stack-pill">Vue.js</span><span class="stack-pill">MySQL</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- SSP-BA -->
+        <div class="exp-item">
+          <div class="exp-line"></div>
+          <div class="exp-content">
+            <div class="exp-header">
+              <div class="exp-top">
+                <div class="exp-role">Responsável Técnico · Analista de Sistemas Pleno</div>
+                <div class="exp-period">fev/2017 → set/2020 · 3a 8m</div>
+              </div>
+              <div class="exp-company">Secretaria de Segurança Pública da Bahia — SSP-BA · APG</div>
+              <div class="exp-meta">
+                <span class="badge badge-amber">Liderança Técnica</span>
+                <span class="badge badge-blue">Setor Público</span>
+                <span class="badge badge-green">Impacto Estadual</span>
+              </div>
+            </div>
+            <ul class="bullet-list">
+              <li>Responsável técnico do setor APG (Assessoria de Planejamento e Gestão), liderando equipe de estagiários</li>
+              <li>Desenvolveu do zero sistemas de controle interno, gestão contratual e controle orçamentário do órgão</li>
+              <li>Soluções adotadas por outros setores públicos do Estado da Bahia, ampliando o alcance e impacto dos sistemas desenvolvidos</li>
+              <li>Atuação full-cycle: levantamento de requisitos, desenvolvimento, implantação e suporte</li>
+            </ul>
+            <div class="highlight-box">
+              <p>Sistemas de gestão desenvolvidos foram exportados e adotados por outros órgãos públicos estaduais — validando a robustez e replicabilidade da solução</p>
+            </div>
+            <div class="stack-pills">
+              <span class="stack-pill">Laravel</span><span class="stack-pill">Angular</span><span class="stack-pill">Node.js</span><span class="stack-pill">PostgreSQL</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Open to work -->
+    <div class="open-banner">
+      <div class="open-dot"></div>
+      <div class="open-text"><strong>Disponível para novas oportunidades</strong> — Aberto a posições como  Software Engineer. </div>
+
+  </main>
+
+</div>
+
+</body>
+</html>
